@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello !{% endblock %}
+
+{% block body %}
+{{ form_start(form)}}
+{{ form_widget(form)}}
+{{ form_end(form)}}
+
+<ul>
+    {% for user in users %}
+    <li>{{ user.id }}</li>
+    <li>{{ user.firstname }}</li>
+    <li>{{ user.lastname }}</li>
+    <li>{{ user.mail }}</li>
+    <li>{{ user.birthday|date }}</li>
+    {% endfor %}
+</ul>
+
+{% for user in users %}
+    <h1>{{ user.firstname }}</h1>
+{% for article in user.articles %}
+    <p>{{ article.title }}</p>
+{% endfor %}
+{% endfor %}
+
+<a></a>
+{% endblock %}
